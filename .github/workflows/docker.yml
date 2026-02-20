@@ -20,3 +20,9 @@ jobs:
 
       - name: Stop containers
         run: docker compose down
+
+      - name: Wait for app
+        run: sleep 10
+
+      - name: Test app
+        run: curl http://localhost:8000
