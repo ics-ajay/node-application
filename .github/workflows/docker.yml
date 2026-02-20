@@ -1,0 +1,22 @@
+name: Docker Compose CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build and start containers
+        run: docker compose up -d --build
+
+      - name: Check running containers
+        run: docker ps
+
+      - name: Stop containers
+        run: docker compose down
