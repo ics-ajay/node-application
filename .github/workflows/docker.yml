@@ -15,6 +15,9 @@ jobs:
       - name: Build and start containers
         run: docker compose up -d --build
 
+      - name: Wait for container
+        run: sleep 15
+
       - name: Check running containers
         run: docker ps
 
